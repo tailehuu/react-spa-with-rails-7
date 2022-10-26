@@ -18,5 +18,11 @@ module ReactSpaWithRails7
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # activejob is using sidekiq
+    config.active_job.queue_adapter = :sidekiq
+
+    # action mailer
+    config.action_mailer.deliver_later_queue_name = 'mailers'
   end
 end
