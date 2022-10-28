@@ -6,7 +6,21 @@ module Clockwork
     puts "Running #{job}, at #{time}"
   end
 
-  every(10.seconds, 'ExchangeRateJob') do
-    ExchangeRateJob.perform_later
+  every(5.minutes, 'ExchangeRateJob') do
+    1.upto(20).each do |id|
+      ExchangeRateJob.perform_later(id)
+    end
+  end
+
+  every(5.minutes, 'CriticalJob') do
+    1.upto(20).each do |id|
+      CriticalJob.perform_later(id)
+    end
+  end
+
+  every(5.minutes, 'LowJob') do
+    1.upto(20).each do |id|
+      LowJob.perform_later(id)
+    end
   end
 end

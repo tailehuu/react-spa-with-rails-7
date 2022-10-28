@@ -1,7 +1,7 @@
 class ExchangeRateJob < ApplicationJob
   queue_as :default
 
-  def perform(*args)
-    puts "=> Call API to fetch the latest Exchange Rate"
+  def perform(id)
+    puts "Exec ExchangeRateJob #{id}"
   end
 end

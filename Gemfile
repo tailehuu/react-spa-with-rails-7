@@ -74,3 +74,4 @@ end
 gem "slim-rails"
 gem "sidekiq"
 gem "clockwork"
+gem "foreman"
